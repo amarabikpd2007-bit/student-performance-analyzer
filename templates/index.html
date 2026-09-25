@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Performance Analyzer</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+        .header {
+            background: #172554;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 850px;
+            margin: 40px auto;
+        }
+
+        .card {
+            background: white;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h2 {
+            color: #172554;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #2563eb;
+        }
+
+        .subjects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 10px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .dashboard-button {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            margin-top: 15px;
+            background: #172554;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .dashboard-button:hover {
+            background: #1e3a8a;
+        }
+
+        .info {
+            margin-top: 25px;
+            padding: 15px;
+            background: #eff6ff;
+            border-radius: 8px;
+            text-align: center;
+            color: #1e40af;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 25px;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        @media (max-width: 700px) {
+
+            .subjects {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 25px;
+            }
+
+            .card {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+
+    <div class="header">
+
+        <h1>
+            Student Performance Analyzer
+        </h1>
+
+        <p>
+            Analyze student marks and track academic performance
+        </p>
+
+    </div>
+
+
+    <!-- Main Container -->
+
+    <div class="container">
+
+        <div class="card">
+
+            <h2>
+                Enter Student Details
+            </h2>
+
+
+            <!-- Student Form -->
+
+            <form action="/analyze" method="POST">
+
+                <!-- Student Name -->
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Student Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter student name"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Subjects -->
+
+                <div class="subjects">
+
+                    <!-- Python -->
+
+                    <div class="form-group">
+
+                        <label for="python">
+                            Python
+                        </label>
+
+                        <input
+                            type="number"
+                            id="python"
+                            name="python"
+                            placeholder="Enter marks"
+                            min="0"
+                            max="100"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- SQL -->
+
+                    <div class="form-group">
+
+                        <label for="sql">
+                            SQL
+                        </label>
+
+                        <input
+                            type="number"
+                            id="sql"
+                            name="sql"
+                            placeholder="Enter marks"
+                            min="0"
+                            max="100"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Statistics -->
+
+                    <div class="form-group">
+
+                        <label for="statistics">
+                            Statistics
+                        </label>
+
+                        <input
+                            type="number"
+                            id="statistics"
+                            name="statistics"
+                            placeholder="Enter marks"
+                            min="0"
+                            max="100"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- Analyze Button -->
+
+                <button type="submit">
+                    Analyze Performance
+                </button>
+
+            </form>
+
+
+            <!-- Dashboard Button -->
+
+            <a href="/dashboard" class="dashboard-button">
+                📊 View Dashboard
+            </a>
+
+
+            <!-- Information -->
+
+            <div class="info">
+
+                Enter marks between 0 and 100
+                for each subject.
+
+            </div>
+
+        </div>
+
+
+        <!-- Footer -->
+
+        <div class="footer">
+
+            Student Performance Analyzer |
+            Built with Python & Flask
+
+        </div>
+
+    </div>
+
+</body>
+</html>
